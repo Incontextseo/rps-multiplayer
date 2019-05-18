@@ -1,3 +1,16 @@
+// Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAUunAnbnurejN7cBTceGkWLOUERTHvkXo",
+    authDomain: "rps-multiplayer-ba31c.firebaseapp.com",
+    databaseURL: "https://rps-multiplayer-ba31c.firebaseio.com",
+    projectId: "rps-multiplayer-ba31c",
+    storageBucket: "rps-multiplayer-ba31c.appspot.com",
+    messagingSenderId: "1000157245847",
+    appId: "1:1000157245847:web:b874af1f4f43b596"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
 var userWins = document.getElementById("user-wins");
 var userLosses = document.getElementById("user-losses");
 var userTies = document.getElementById("user-ties");
