@@ -39,14 +39,33 @@
                       </div>
                     <div class="battleground">
                     <!-- <img id="player-one-hand" src="assets/images/spock.jpg"><br/> -->
-                      <br/><h2 id="announcement">Player One Wins!</h2>
+                      <br/><h2 id="announcement">Player One Wins!
+                        <br/>Rock beats Scissors
+                      </h2>
                     <img id="vs-logo" src="assets/images/vs.jpg"><br/>  
                     <!-- <img id="player-two-hand" src="assets/images/spock.jpg"> -->
-                    <div id="score">
-                        <h3>Score</h3>
-                        <p>Player One: <span id="one-wins"></span></p>
-                        <p>Player Two: <span id="two-wins"></span></p>
-                      </div>
+                    <div>
+                      <table id="score">
+                        <tr>
+                          <th padding="15px">Score</th>
+                          <th padding="15px">Player One</th>
+                          <th padding="15px">Player Two</th>
+                        </tr>
+                        <tr>
+                          <td>Wins</td>
+                          <td><span id="one-wins">1</span></td>
+                          <td><span id="two-wins">2</span></td>
+                        </tr>
+                        <tr>
+                          <td>Losses</td>
+                          <td><span id="one-loss">3</span></td>
+                          <td><span id="two-loss">2</span></td>
+                        </tr>
+                        <tr>
+                          <td>Ties</td>
+                          <td colspan="2"><span id="ties"">2</span></td>
+                        </tr>
+                      </table>
                     </div>
                     <div id="player-two-hand">
                         <br/><h2>Player Two:</h2>

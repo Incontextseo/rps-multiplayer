@@ -205,13 +205,14 @@ input[type=text], input[type=email], textarea {
 
 #announcement {
     background-color: #ddd;
-    color: royalblue;
+    color: darkslateblue;
 }
 
 #score {
-    background-color: royalblue;
+    background-color: darkslateblue;
     color: white;
     margin-bottom: 100px;
+    padding: 20px;
 }
 
 #hands-options {
