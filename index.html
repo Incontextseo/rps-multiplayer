@@ -29,21 +29,36 @@
                   
                   <hr>
                   <div id="game">
-
-                    Hello World!
-                    <br/>
-                    Play Rock, Paper, Scissors.
-                    <br/>
-                    Press R, P, or S to enter your choice and see what the computer throws.
-                    <br/>
-                    Wins: <span id="user-wins"><strong>...Nothing.</strong></span>
-                    <br/>
-                    Losses: <span id="user-losses"><strong>...Nothing.</strong></span>
-                    <br/>
-                    Ties: <span id="user-ties"><strong>...Nothing.</strong></span>
-                
+                   <div id="player-one-hand">
+                          <br/><h2>Player One:</h2>
+                        <img class="rpsls-button" value="rock" src="assets/images/rock.jpg">
+                        <img class="rpsls-button" value="paper" src="assets/images/paper.jpg">
+                        <img class="rpsls-button" value="scissors" src="assets/images/scissors.jpg">
+                        <img class="rpsls-button" value="lizard" src="assets/images/lizard.jpg">
+                        <img class="rpsls-button" value="spock" src="assets/images/spock.jpg">
+                      </div>
+                    <div class="battleground">
+                    <!-- <img id="player-one-hand" src="assets/images/spock.jpg"><br/> -->
+                      <br/><h2 id="announcement">Player One Wins!</h2>
+                    <img id="vs-logo" src="assets/images/vs.jpg"><br/>  
+                    <!-- <img id="player-two-hand" src="assets/images/spock.jpg"> -->
+                    <div id="score">
+                        <h3>Score</h3>
+                        <p>Player One: <span id="one-wins"></span></p>
+                        <p>Player Two: <span id="two-wins"></span></p>
+                      </div>
+                    </div>
+                    <div id="player-two-hand">
+                        <br/><h2>Player Two:</h2>
+                      <img class="rpsls-button" value="rock" src="assets/images/rock.jpg">
+                      <img class="rpsls-button" value="paper" src="assets/images/paper.jpg">
+                      <img class="rpsls-button" value="scissors" src="assets/images/scissors.jpg">
+                      <img class="rpsls-button" value="lizard" src="assets/images/lizard.jpg">
+                      <img class="rpsls-button" value="spock" src="assets/images/spock.jpg">
+                    </div>
                   </div>
-                            
+
+   
                 </section>
             
               </div>
@@ -51,7 +66,7 @@
     
         <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
       <!-- The core Firebase JS SDK is always required and must be listed first -->
-      <script src="https://www.gstatic.com/firebasejs/6.0.1/firebase.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
     </script>
     <script>
     

@@ -195,6 +195,29 @@ input[type=text], input[type=email], textarea {
     font-style: bold;
 }
 
+#game {
+    column-count: 3;
+}
+
+.rpsls-button {
+    margin: 10px;
+}
+
+#announcement {
+    background-color: #ddd;
+    color: royalblue;
+}
+
+#score {
+    background-color: royalblue;
+    color: white;
+    margin-bottom: 100px;
+}
+
+#hands-options {
+    margin-bottom: 20px;
+}
+
 @media screen and (max-width: 980px) {
     .innerwrap {
         max-width: 900px;
