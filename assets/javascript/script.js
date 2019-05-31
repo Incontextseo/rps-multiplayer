@@ -31,8 +31,49 @@ $(document).ready(function() {
     console.log("Play Again")
     oneGuess = null;
     twoGuess = null;
+    console.log(oneGuess + " " + twoGuess)
     $('#announcement').empty();
     clearInterval(timer);
+  }
+  function compareHands () {
+    if (oneGuess !== null && twoGuess !== null) {
+      if (oneGuess === "Rock" && twoGuess === "Scissors" || oneGuess === "Paper" && twoGuess === "Rock" || oneGuess === "Scissors" && twoGuess === "Paper" || oneGuess === "Lizard" && twoGuess === "Spock" || oneGuess === "Scissors" && twoGuess === "Lizard" || oneGuess === "Spock" && twoGuess === "Scissors" || oneGuess === "Rock" && twoGuess === "Lizard" || oneGuess === "Lizard" && twoGuess === "Paper" || oneGuess === "Spock" && twoGuess === "Rock" || oneGuess === "Paper" && twoGuess === "Spock") {
+          oneWins++;
+          twoLosses++;
+          beatsText = (oneGuess + " beats " + twoGuess)
+          console.log("Player One Wins!" + breakText + beatsText)
+          $('#announcement').html("Player One Wins!" + breakText + beatsText)
+          $('#one-wins').text(oneWins)
+          $('#two-loss').text(twoLosses)
+          clearInterval(timer)
+          timer = setInterval(function(){
+              playAgain() 
+            }, 3000);
+      } else if (oneGuess === twoGuess) {
+        beatsText = (oneGuess + " = " + twoGuess)
+        console.log('It is a Tie!' + breakText + beatsText)
+        console.log(ties)
+        $('#announcement').html('It is a Tie!' + breakText + beatsText)
+        clearInterval(timer)
+        timer = setInterval(function(){
+            playAgain() 
+          }, 3000);
+        ties++;
+        $('#ties').text(ties)
+      } else {
+        beatsText = (twoGuess + " beats " + oneGuess)
+        console.log("Player Two Wins!" + breakText + beatsText)
+        $('#announcement').html("Player Two Wins!" + breakText + beatsText)
+        clearInterval(timer)
+        timer = setInterval(function(){
+            playAgain() 
+          }, 3000);
+        oneLosses++;
+        twoWins++;
+        $('#two-wins').text(twoWins)
+        $('#one-loss').text(oneLosses)
+      }
+    }
   }
 
   // Grabs user one's throw
@@ -40,48 +81,16 @@ $(document).ready(function() {
     oneGuess = $(this).attr("id");
       console.log("Player One: " + oneGuess);
       console.log("Player Two: " + twoGuess);
-        // Grabs user two's throw
-    $('.two-rpsls-button').on('click', function(event) {
-      twoGuess = $(this).attr("id");
-        console.log("Player Two: " + twoGuess);
-        console.log(oneGuess + " " + twoGuess);
-      if (oneGuess !== null && twoGuess !== null) {
-        if (oneGuess === "Rock" && twoGuess === "Scissors" || oneGuess === "Paper" && twoGuess === "Rock" || oneGuess === "Scissors" && twoGuess === "Paper" || oneGuess === "Lizard" && twoGuess === "Spock" || oneGuess === "Scissors" && twoGuess === "Lizard" || oneGuess === "Spock" && twoGuess === "Scissors" || oneGuess === "Rock" && twoGuess === "Lizard" || oneGuess === "Lizard" && twoGuess === "Paper" || oneGuess === "Spock" && twoGuess === "Rock" || oneGuess === "Paper" && twoGuess === "Spock") {
-            oneWins++;
-            twoLosses++;
-            beatsText = (oneGuess + " beats " + twoGuess)
-            console.log("Player One Wins!" + breakText + beatsText)
-            $('#announcement').html("Player One Wins!" + breakText + beatsText)
-            $('#one-wins').text(oneWins)
-            $('#two-loss').text(twoLosses)
-            timer = setInterval(function(){
-                playAgain() 
-              }, 3000);
-        } else if (oneGuess === twoGuess) {
-          ties++;
-          beatsText = (oneGuess + " = " + twoGuess)
-          console.log('It is a Tie!' + breakText + beatsText)
-          console.log(ties)
-          $('#announcement').html('It is a Tie!' + breakText + beatsText)
-          $('#ties').text(ties)
-          timer = setInterval(function(){
-              playAgain() 
-            }, 3000);
-        } else {
-          oneLosses++;
-          twoWins++;
-          beatsText = (twoGuess + " beats " + oneGuess)
-          console.log("Player Two Wins!" + breakText + beatsText)
-          $('#announcement').html("Player Two Wins!" + breakText + beatsText)
-          $('#two-wins').text(twoWins)
-          $('#one-loss').text(oneLosses)
-          timer = setInterval(function(){
-              playAgain() 
-            }, 3000);
-        }
-      }
-    })
+    compareHands();
   })
-  clearInterval(timer)
+  
+  // Grabs user two's throw
+  $('.two-rpsls-button').on('click', function(event) {
+    twoGuess = $(this).attr("id");
+      console.log("Player Two: " + twoGuess);
+      console.log(oneGuess + " " + twoGuess);
+    compareHands();
+  })
+
 })
 
