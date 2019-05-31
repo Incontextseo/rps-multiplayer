@@ -11,46 +11,77 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 
-var userWins = document.getElementById("user-wins");
-var userLosses = document.getElementById("user-losses");
-var userTies = document.getElementById("user-ties");
 
-console.log(userWins, userLosses, userTies)
-
-var wins = 0;
-var losses = 0;
+var oneWins = 0;
+var oneLosses = 0;
+var twoWins = 0;
+var twoLosses = 0;
 var ties = 0;
-
-// Creates an array that lists out all of the options (Rock, Paper, or Scissors).
-var computerChoices = ["r", "p", "s"];
+var oneGuess = null;
+var twoGuess = null;
+var winsText;
+var beatsText;
+var breakText = "<br>";
+var timer;
 
 // This function is run whenever the user presses a key.
-document.onkeyup = function(event) {
+$(document).ready(function() {
 
-  // Determines which key was pressed.
-  var userGuess = event.key;
-
-  // Randomly chooses a choice from the options array. This is the Computer's guess.
-  var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-
-  if (userGuess === "r" || userGuess === "p" || userGuess === "s") {
-      if (userGuess === "r" && computerGuess === "s" || userGuess === "p" && computerGuess === "r" || userGuess === "s" && computerGuess === "p") {
-        console.log('Human Wins!')
-        wins++;
-        userWins.textContent = wins;
-    } else if (userGuess === computerGuess) {
-      console.log('It is a Tie!')
-      ties++;
-      userTies.textContent = ties;
-    } else {
-      console.log('Computer Wins!')
-      losses++;
-      userLosses.textContent = losses;
-    }
+  function playAgain () {
+    console.log("Play Again")
+    oneGuess = null;
+    twoGuess = null;
+    $('#announcement').empty();
+    clearInterval(timer);
   }
 
-}
+  // Grabs user one's throw
+  $('.one-rpsls-button').on('click', function(event) {
+    oneGuess = $(this).attr("id");
+      console.log("Player One: " + oneGuess);
+      console.log("Player Two: " + twoGuess);
+        // Grabs user two's throw
+    $('.two-rpsls-button').on('click', function(event) {
+      twoGuess = $(this).attr("id");
+        console.log("Player Two: " + twoGuess);
+        console.log(oneGuess + " " + twoGuess);
+      if (oneGuess !== null && twoGuess !== null) {
+        if (oneGuess === "Rock" && twoGuess === "Scissors" || oneGuess === "Paper" && twoGuess === "Rock" || oneGuess === "Scissors" && twoGuess === "Paper" || oneGuess === "Lizard" && twoGuess === "Spock" || oneGuess === "Scissors" && twoGuess === "Lizard" || oneGuess === "Spock" && twoGuess === "Scissors" || oneGuess === "Rock" && twoGuess === "Lizard" || oneGuess === "Lizard" && twoGuess === "Paper" || oneGuess === "Spock" && twoGuess === "Rock" || oneGuess === "Paper" && twoGuess === "Spock") {
+            oneWins++;
+            twoLosses++;
+            beatsText = (oneGuess + " beats " + twoGuess)
+            console.log("Player One Wins!" + breakText + beatsText)
+            $('#announcement').html("Player One Wins!" + breakText + beatsText)
+            $('#one-wins').text(oneWins)
+            $('#two-loss').text(twoLosses)
+            timer = setInterval(function(){
+                playAgain() 
+              }, 3000);
+        } else if (oneGuess === twoGuess) {
+          ties++;
+          beatsText = (oneGuess + " = " + twoGuess)
+          console.log('It is a Tie!' + breakText + beatsText)
+          console.log(ties)
+          $('#announcement').html('It is a Tie!' + breakText + beatsText)
+          $('#ties').text(ties)
+          timer = setInterval(function(){
+              playAgain() 
+            }, 3000);
+        } else {
+          oneLosses++;
+          twoWins++;
+          beatsText = (twoGuess + " beats " + oneGuess)
+          console.log("Player Two Wins!" + breakText + beatsText)
+          $('#announcement').html("Player Two Wins!" + breakText + beatsText)
+          $('#two-wins').text(twoWins)
+          $('#one-loss').text(oneLosses)
+          timer = setInterval(function(){
+              playAgain() 
+            }, 3000);
+        }
+      }
+    })
+  })
+  clearInterval(timer)
+})
 
-  userWins.textContent = [usersWins + 1];
-  userLosses.textContent = [usersLosses + 1];
-  userTies.textContent = [usersTies + 1]
