@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <title>Rock-Paper-Scissors-Lizard-Spock</title>
@@ -29,51 +30,54 @@
                   
                   <hr>
                   <div id="game">
-                   <div id="player-one-hand">
-                          <br/><h2>Player One:<span id="locked" style="color: greenyellow"></span></h2>
-                        <img class="player-one one-rpsls-button" id="Rock" src="assets/images/rock.jpg">
-                        <img class="player-one one-rpsls-button" id="Paper" src="assets/images/paper.jpg">
-                        <img class="player-one one-rpsls-button" id="Scissors" src="assets/images/scissors.jpg">
-                        <img class="player-one one-rpsls-button" id="Lizard" src="assets/images/lizard.jpg">
-                        <img class="player-one one-rpsls-button" id="Spock" src="assets/images/spock.jpg">
+                        <h2 id="announcement">
+                        </h2> 
+                        <table id="score">
+                            <tr>
+                              <th style="padding: 15px;">Score</th>
+                              <th style="padding: 15px;">P1</th>
+                              <th style="padding: 15px;">P2</th>
+                            </tr>
+                            <tr>
+                              <td>Wins</td>
+                              <td><span id="one-wins"></span></td>
+                              <td><span id="two-wins"></span></td>
+                            </tr>
+                            <tr>
+                              <td>Losses</td>
+                              <td><span id="one-loss"></span></td>
+                              <td><span id="two-loss"></span></td>
+                            </tr>
+                            <tr>
+                              <td>Ties</td>
+                              <td colspan="2"><span id="ties"></span></td>
+                            </tr>
+                          </table>
+                         
+                      <div id="battleground">
+                        <span><b>P1:</b><span id="locked" style="color: greenyellow">Your Turn!</span></span>
+                            <img id="vs-logo" src="assets/images/vs.jpg" height="100px">
+                        <span><b>P2:</b><span id="you-are-up" style="color: greenyellow"></span></span>
+                          </div>
+<br/>
+                      <div id="hands">
+                        <img class="player-hand one-rpsls-button" id="Rock" src="assets/images/rock.jpg">
+                        <img class="player-hand one-rpsls-button" id="Paper" src="assets/images/paper.jpg">
+                        <img class="player-hand one-rpsls-button" id="Scissors" src="assets/images/scissors.jpg">
+                        <img class="player-hand one-rpsls-button" id="Lizard" src="assets/images/lizard.jpg">
+                        <img class="player-hand one-rpsls-button" id="Spock" src="assets/images/spock.jpg">
                       </div>
-                    <div class="battleground">
-                    <!-- <img id="player-one-hand" src="assets/images/spock.jpg"><br/> -->
-                      <br/><h2 id="announcement">
-                      </h2>
-                    <img id="vs-logo" src="assets/images/vs.jpg"><br/>  
-                    <!-- <img id="player-two-hand" src="assets/images/spock.jpg"> -->
-                    <div>
-                      <table id="score">
-                        <tr>
-                          <th padding: "15px";>Score</th>
-                          <th padding: "15px";>Player One</th>
-                          <th padding: "15px";>Player Two</th>
-                        </tr>
-                        <tr>
-                          <td>Wins</td>
-                          <td><span id="one-wins"></span></td>
-                          <td><span id="two-wins"></span></td>
-                        </tr>
-                        <tr>
-                          <td>Losses</td>
-                          <td><span id="one-loss"></span></td>
-                          <td><span id="two-loss"></span></td>
-                        </tr>
-                        <tr>
-                          <td>Ties</td>
-                          <td colspan="2"><span id="ties"></span></td>
-                        </tr>
-                      </table>
+
+                      
                     </div>
-                    <div id="player-two-hand">
+                    <!-- <div id="player-two-hand">
                         <br/><h2>Player Two:</h2>
                       <img class="player-two" id="Rock" src="assets/images/rock.jpg">
                       <img class="player-two" id="Paper" src="assets/images/paper.jpg">
                       <img class="player-two" id="Scissors" src="assets/images/scissors.jpg">
                       <img class="player-two" id="Lizard" src="assets/images/lizard.jpg">
                       <img class="player-two" id="Spock" src="assets/images/spock.jpg">
-                    </div>
+                    </div> -->
                   </div>
 
    

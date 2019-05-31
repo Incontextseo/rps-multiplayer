@@ -35,9 +35,10 @@ $(document).ready(function() {
     console.log(oneGuess + " " + twoGuess)
     $('#announcement').empty();
     clearInterval(timer);
-    $('.player-one').addClass('one-rpsls-button');
-    $('.player-two').removeClass('two-rpsls-button');
-    $('#locked').text("")
+    $('.player-hand').addClass('one-rpsls-button');
+    $('.player-hand').removeClass('two-rpsls-button');
+    $('#locked').text("Your Turn!")
+    $('#you-are-up').text("")
   }
 
   function compareHands () {
@@ -89,8 +90,10 @@ $(document).ready(function() {
     oneGuess = $(this).attr("id");
       console.log("Player One: " + oneGuess);
       console.log("Player Two: " + twoGuess);
-    $('.player-two').addClass('two-rpsls-button');
+    $('.player-hand').removeClass('one-rpsls-button');
+    $('.player-hand').addClass('two-rpsls-button');
     $('#locked').text(" Locked In!")
+    $('#you-are-up').text(" Your Turn!")
   })
 
       // Grabs user two's throw
@@ -99,7 +102,6 @@ $(document).ready(function() {
       console.log("Player Two: " + twoGuess);
       console.log(oneGuess + " " + twoGuess);
     compareHands();
-    $('.player-one').removeClass('one-rpsls-button');
   })
 
 

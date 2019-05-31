@@ -195,12 +195,14 @@ input[type=text], input[type=email], textarea {
     font-style: bold;
 }
 
-#game {
-    column-count: 3;
+#battleground {
+    float: left;
+    margin: 10px 100px 10px 100px;
 }
 
-.rpsls-button {
+.player-hand {
     margin: 10px;
+
 }
 
 #announcement {
@@ -211,8 +213,9 @@ input[type=text], input[type=email], textarea {
 #score {
     background-color: darkslateblue;
     color: white;
-    margin-bottom: 100px;
-    padding: 20px;
+    float: left;
+    margin-top: 40px;
+    /* margin-left: 100px; */
 }
 
 #hands-options {
@@ -240,6 +243,9 @@ input[type=text], input[type=email], textarea {
         margin-left: 40px;
     }
     input[type=text], input[type=email], textarea {
+        width: 80%;
+    }
+    #score {
         width: 80%;
     }
 }
