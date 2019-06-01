@@ -24,21 +24,35 @@ var twoGuess = 0;
 var beatsText;
 var breakText = "<br>";
 var timer;
+var gameNum = 1;
 
 // This function is run whenever the user presses a key.
 $(document).ready(function() {
+  $('#game-num').text("Game #" + gameNum)
 
   function playAgain () {
     console.log("Play Again")
     oneGuess = 0;
     twoGuess = 0;
     console.log(oneGuess + " " + twoGuess)
-    $('#announcement').empty();
+    $('#winner-is').empty();
     clearInterval(timer);
     $('.player-hand').addClass('one-rpsls-button');
     $('.player-hand').removeClass('two-rpsls-button');
-    $('#locked').text("Your Turn!")
-    $('#you-are-up').text("")
+    $('#locked').text("Your Turn!");
+    $('#you-are-up').text("");
+    gameNum++;
+    $('#game-num').text("Game #" + gameNum)
+    database.ref().set({
+      oneGuess: oneGuess,
+      twoGuess: twoGuess,
+      oneWins: oneWins,
+      twoLosses: twoLosses,
+      twoWins: twoWins,
+      oneLosses: oneLosses,
+      ties: ties,
+      gameNum: gameNum
+    });
   }
 
   function compareHands () {
@@ -48,7 +62,7 @@ $(document).ready(function() {
           twoLosses++;
           beatsText = (oneGuess + " beats " + twoGuess)
           console.log("Player One Wins!" + breakText + beatsText)
-          $('#announcement').html("Player One Wins!" + breakText + beatsText)
+          $('#winner-is').html("- Player One Wins!" + breakText + beatsText)
           $('#one-wins').text(oneWins)
           $('#two-loss').text(twoLosses)
           clearInterval(timer)
@@ -59,7 +73,7 @@ $(document).ready(function() {
         beatsText = (oneGuess + " = " + twoGuess)
         console.log('It is a Tie!' + breakText + beatsText)
         console.log(ties)
-        $('#announcement').html('It is a Tie!' + breakText + beatsText)
+        $('#winner-is').html('- It is a Tie!' + breakText + beatsText)
         clearInterval(timer)
         timer = setInterval(function(){
             playAgain() 
@@ -69,7 +83,7 @@ $(document).ready(function() {
       } else {
         beatsText = (twoGuess + " beats " + oneGuess)
         console.log("Player Two Wins!" + breakText + beatsText)
-        $('#announcement').html("Player Two Wins!" + breakText + beatsText)
+        $('#winner-is').html("- Player Two Wins!" + breakText + beatsText)
         clearInterval(timer)
         timer = setInterval(function(){
             playAgain() 
@@ -78,6 +92,7 @@ $(document).ready(function() {
         twoWins++;
         $('#two-wins').text(twoWins)
         $('#one-loss').text(oneLosses)
+        console.log("Game #" + gameNum)
 
       }
 
@@ -101,42 +116,34 @@ $(document).ready(function() {
     twoGuess = $(this).attr("id");
       console.log("Player Two: " + twoGuess);
       console.log(oneGuess + " " + twoGuess);
+      $('#you-are-up').text(" Locked In!")
     compareHands();
   })
 
+  // $('<button>').on('click', function(event) {
+  //   database.ref().set({
+  //     oneWins: 0,
+  //     twoLosses: 0,
+  //     twoWins: 0,
+  //     oneLosses: 0,
+  //     ties: 0,
+  //     gameNum: 1,
+  //   });
 
-
-  $('body').on('click', function(event) {
-      database.ref().set({
-        oneGuess: oneGuess,
-        twoGuess: twoGuess,
-        oneWins: oneWins,
-        twoLosses: twoLosses,
-        twoWins: twoWins,
-        oneLosses: oneLosses,
-        ties: ties,
-      });
-  })
 });
 
 
 
 // Firebase watcher + initial loader HINT: .on("value")
 database.ref().on("value", function(snapshot) {
-
-    // If Firebase has a oneGuess or twoGuess stored, update our client-side variables
-    if (snapshot.child("oneGuess").exists()) {
-      // Set the variables for highBidder/highPrice equal to the stored values.
-      oneGuess = snapshot.val().oneGuess;
-    } else if (snapshot.child("twoGuess").exists()) {
-      twoGuess = snapshot.val().twoGuess;
-    } 
-
+ 
+    oneGuess = snapshot.val().oneGuess;
     oneWins = snapshot.val().oneWins;
     twoWins = snapshot.val().twoWins;
     oneLosses = snapshot.val().oneLosses;
     twoLosses = snapshot.val().twoLosses;
     ties = snapshot.val().ties;
+    gameNum = snapsho.val().gameNum;
 
   // Log everything that's coming out of snapshot
   console.log(snapshot.val());
@@ -147,6 +154,7 @@ database.ref().on("value", function(snapshot) {
   console.log(snapshot.val().twoWins);
   console.log(snapshot.val().twoLosses);
   console.log(snapshot.val().ties);
+  console.log(snapshot.val().gameNum);
 
   // Change the HTML to reflect
   $("#one-wins").text(snapshot.val().oneWins);
@@ -154,6 +162,7 @@ database.ref().on("value", function(snapshot) {
   $("#one-loss").text(snapshot.val().oneLosses);
   $("#two-loss").text(snapshot.val().twoLosses);
   $("#ties").text(snapshot.val().ties);
+  $('#game-num').text("Game #" + gameNum)
 
   // Handle the errors
 }, function(errorObject) {

@@ -215,6 +215,9 @@ table {
 #announcement {
     background-color: #ddd;
     color: darkslateblue;
+    width:80%; 
+    margin-left:10%; 
+    margin-right:10%;
 }
 
 #score {
@@ -461,8 +464,12 @@ table {
         top: 2080px;
         left: 20px;
     }
+
+    h1 {
+        font-size: 24px;
+    }
         
-    #hands {
+    #hands #announcement {
         width: auto; 
         margin-left:auto; 
         margin-right: auto;
