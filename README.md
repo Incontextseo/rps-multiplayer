@@ -12,7 +12,7 @@ CSS
 
 JavaScript
 - Player 1 selects their hand and then player 2 selects their hand
-    - Player 1 is shown as locked in upon the first click, but they can change their selection up until Player 2 makes their selection.
+    - Player 1 is shown as locked in upon the first click.
     - Player 2 is not allowed to go first and can only go after Player 1 is "Locked In"
 - Hands are compared with the compareHands function
     - If player 1 wins, a point is added to their wins and a point is added to the total of their opponents losses
