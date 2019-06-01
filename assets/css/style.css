@@ -5,6 +5,20 @@ body {
     background-image: url("../images/rps-lizard-spock.png");
 }
 
+#vs-logo {
+    width: 25%;
+    margin: 0% 25% 0% 5%;
+}
+
+#battleground {
+    background-color: lightgoldenrodyellow;
+    font-size: 16px;
+    width:70%; 
+    margin-left:15%; 
+    margin-right:15%;
+}
+
+
 .site-header {
     font-family: 'Georgia', 'Times New Roman', Times, serif;
     background-color:#ffffff;
@@ -184,25 +198,18 @@ input[type=text], input[type=email], textarea {
     width: 66%;
 }
 
-.site-footer {
-    background-color: #666666;
-    display: block;
-    z-index: 1;
-    text-align: center;
-    padding-top: 40px;
-    padding-bottom: 5px;
-    font-size: 14px;
-    font-style: bold;
+table {
+    align-content: center;
 }
 
-#battleground {
-    float: left;
-    margin: 10px 100px 10px 100px;
+#hands {
+    width:80%; 
+    margin-left:10%; 
+    margin-right:10%;
 }
 
 .player-hand {
     margin: 10px;
-
 }
 
 #announcement {
@@ -213,18 +220,28 @@ input[type=text], input[type=email], textarea {
 #score {
     background-color: darkslateblue;
     color: white;
-    float: left;
-    margin-top: 40px;
-    /* margin-left: 100px; */
+    width:70%; 
+    margin-left:15%; 
+    margin-right:15%;
+    line-height: 35px;
+    font-size: 20px;
 }
 
-#hands-options {
-    margin-bottom: 20px;
+.site-footer {
+    background-color: #666666;
+    color: #fff;
+    display: block;
+    z-index: 1;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 5px;
+    font-size: 14px;
+    font-style: bold;
 }
 
 @media screen and (max-width: 980px) {
     .innerwrap {
-        max-width: 900px;
+        max-width: 80%;
         height: 78px;
     }
     .logo {
@@ -235,41 +252,17 @@ input[type=text], input[type=email], textarea {
         padding: 28px 0px 28px 0px;
     }
     .container {
-        height: 800px;
+        height: 1700px;
     }
     .main-content {
-        max-width: 640px;
-        height: 80%;
+        max-width: 76%;
+        height: 90%;
         margin-left: 40px;
     }
     input[type=text], input[type=email], textarea {
         width: 80%;
     }
-    #score {
-        width: 80%;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .innerwrap {
-        max-width: 700px;
-        height: 74px;
-    }
-    .logo {
-        font-size: 18px;
-        padding: 28px 0px 28px 0px;
-    }
-    nav {
-        padding: 28px 0px 28px 0px;
-    }
-    .container {
-        height: 1100px;
-    }
-    .main-content {
-        max-width: 510px;
-        height: 80%;
-    }
-
+    
     .btn-1 {
         top: 140px;
         left: 20px;
@@ -299,11 +292,105 @@ input[type=text], input[type=email], textarea {
         top: 620px;
         left: 264px;
     }
+            
+    .btn-7 {
+        top: 860px;
+        left: 20px;
+    }
+    
+    .btn-8 {
+        top: 860px;
+        left: 264px;
+    }
+    
+    .btn-9 {
+        top: 1100px;
+        left: 20px;
+    }
+
+    #hands {
+        width: auto; 
+        margin-left:auto; 
+        margin-right: auto;
+    }
 }
 
-@media screen and (max-height: 640px) {
+@media screen and (max-width: 768px) {
     .innerwrap {
-        max-width: 640px;
+        max-width: 80%;
+        height: 74px;
+    }
+    .logo {
+        font-size: 18px;
+        padding: 28px 0px 28px 0px;
+    }
+    nav {
+        padding: 28px 0px 28px 0px;
+    }
+    .container {
+        height: 1600px;
+    }
+    .main-content {
+        max-width: 76%;
+        height: 90%;
+        margin-left: 82px;
+    }
+    
+    .btn-1 {
+        top: 140px;
+        left: 20px;
+    }
+    
+    .btn-2 {
+        top: 140px;
+        left: 264px;
+    }
+    
+    .btn-3 {
+        top: 380px;
+        left: 20px;
+    }
+    
+    .btn-4 {
+        top: 380px;
+        left: 264px;
+    }
+    
+    .btn-5 {
+        top: 620px;
+        left: 20px;
+    }
+    
+    .btn-6 {
+        top: 620px;
+        left: 264px;
+    }
+            
+    .btn-7 {
+        top: 860px;
+        left: 20px;
+    }
+    
+    .btn-8 {
+        top: 860px;
+        left: 264px;
+    }
+    
+    .btn-9 {
+        top: 1100px;
+        left: 20px;
+    }
+        
+    #hands {
+        width: auto; 
+        margin-left:auto; 
+        margin-right: auto;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .innerwrap {
+        max-width: 80%;
         height: 120px;
     }
     .logo {
@@ -318,7 +405,7 @@ input[type=text], input[type=email], textarea {
         font-size: 16px;
     }
     .container {
-        height: 2000px;
+        height: auto;
     }
     .main-content {
         height: 90%;
@@ -356,7 +443,28 @@ input[type=text], input[type=email], textarea {
     }
     
     .btn-6 {
-        top: 1340px;
+        top: 1345px;
         left: 20px;
+    }
+        
+    .btn-7 {
+        top: 1590px;
+        left: 20px;
+    }
+    
+    .btn-8 {
+        top: 1835px;
+        left: 20px;
+    }
+    
+    .btn-9 {
+        top: 2080px;
+        left: 20px;
+    }
+        
+    #hands {
+        width: auto; 
+        margin-left:auto; 
+        margin-right: auto;
     }
 } 
